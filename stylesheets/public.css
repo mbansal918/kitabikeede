@@ -1,0 +1,36 @@
+#container{
+	width: 1200px;
+}
+
+#header
+{
+	width: 1500px;
+	height: 100px;
+	border-bottom: 2px solid #000000;
+}
+
+#leftnav
+{
+	float: left;
+	width: 140px;
+	height: 400px;
+	background-color: #000000; 
+}
+
+#rightnav
+{
+	float: right;
+	width: 140px;
+	height: 400px;
+	background-color: #F8AA#C;
+	border-right: 1px dashed #694717; 
+}
+#body
+{
+	width: 620px;
+}
+#footer
+{
+	clear: both;
+	background-color: #D1C0A7;
+}
