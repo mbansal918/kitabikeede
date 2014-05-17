@@ -1,3 +1,4 @@
+<?php ob_start();?>
 <?php require_once("includes/connection.php"); ?>
 <?php require_once("includes/functions.php"); ?>
 <?php require_once("includes/constants.php"); ?>
@@ -62,4 +63,4 @@ if(isset($_POST['categorysearch'])){
 ?>
 
 <?php include("includes/footer.php"); ?>
-
+<?php ob_end_flush();?>
