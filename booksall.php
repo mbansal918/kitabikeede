@@ -44,7 +44,7 @@ for($i = 0 ; $i < $total ; $i++){
 	$query2 = mysql_query("SELECT * FROM bsbooks WHERE bookstoreid='$bsid' AND categoryname='$catname'");
 	while($row = mysql_fetch_array($query2)){
 	$booknames = $row['bookname'];
-	$editions = $row['id'];
+	$editions = $row['edition'];
 	$authornames = $row['authorname'];
 	$price = $row['price'];
 	?>

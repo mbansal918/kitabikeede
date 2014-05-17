@@ -46,7 +46,7 @@
     </div>
   -->
 <?php
-$query = mysql_query("SELECT * FROM colleges");
+$query = mysql_query("SELECT * FROM colleges WHERE visible=1");
     while($row = mysql_fetch_array($query))
     $not[] = $row['college'];
 $colleges = sizeof($not);
@@ -62,9 +62,9 @@ $colleges = sizeof($not);
                   <div id="slider">
                   <img id="one" src="img/book1.jpg" />
                   <img id="two" src="img/book3.jpg" />
-                  <img id="three" src="img/book2.jpg" />
+                  <img id="three" src="img/book5.jpg" />
                   <img id="four" src="img/book4.jpg" />
-                  <img id="five" src="img/book5.jpg" />
+                  <img id="five" src="img/book2.jpg" />
                   <ul>
                     <li>
                       <a href="#one"></a>

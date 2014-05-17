@@ -34,6 +34,7 @@ if(isset($_POST['pass']) && isset($_POST['user'])){
 }
 ?>
 <div>
+<center><h1 style="font-family:cursive;">For BookStore Owners Only</h1></center>
 <table id="loginbs">
 	<tr>
 		<td>

@@ -15,8 +15,8 @@ $address = $row['address'];
 
 <div id="bsname"><?php echo $bsname ?></div>
 <img src="img/bookstoreinfo.jpg" id="bookstimg">
-<div id="bsphone">Contact No. - <?php echo $phone ?></div>
-<div id="bsaddress">Address - <?php echo $address ?></div>
-<div id="bslocation">City - <?php echo $location ?></div>
+<div id="bsphone"><div style="text-decoration:underline;">Contact No. - </div><?php echo $phone ?></div>
+<div id="bsaddress"><div style="text-decoration:underline;">Address - </div><?php echo $address ?></div>
+<div id="bslocation"><div style="text-decoration:underline;">City - </div><?php echo $location ?></div>
 
 <?php include("includes/footer.php"); ?>

@@ -15,7 +15,7 @@
 				$query2 = mysql_query("SELECT * FROM colleges WHERE college='$college'");
 				$ror = mysql_fetch_array($query2);
 				if(empty($ror)){
-				$query = mysql_query("INSERT INTO colleges VALUES ('','$college')");
+				$query = mysql_query("INSERT INTO colleges VALUES ('','$college',0)");
 				redirect_to("buyfrom.php");
 			}
 			}
@@ -56,7 +56,7 @@
 												" >
 			<select name="name" id="collegelist">
 				<?php 
-					$mydata = mysql_query("SELECT DISTINCT(college) FROM colleges ORDER BY college");
+					$mydata = mysql_query("SELECT DISTINCT(college) FROM colleges ORDER BY college WHERE visible=1");
 					while ($record = mysql_fetch_array($mydata)) 
 					{
 						echo '<option id="ox" value="'.$record['college']. '">'.$record['college'].'</option>';
@@ -85,6 +85,7 @@
 			<form action="buyfrom.php" method="POST">
 				Not found your college in the list.</br>
 				Add a College / School : <input type="text" name="college"> <br>
+				Your college will be added once the admin approves it.<br>
 				<button type="submit" name="submit" class="btn btn-primary">Add College / School</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
