@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php
 session_start();
 ?>
@@ -6,14 +7,14 @@ session_start();
 <?php require_once("includes/constants.php"); ?>
 <?php include("includes/header.php"); ?>
 <?php
-	$bookstoreid = $_GET['id'];
-	$categoryname = $_GET['category'];
+	$bookstoreid = mysql_prep($_GET['id']);
+	$categoryname = mysql_prep($_GET['category']);
 ?>
 <?php
 if(isset($_GET['bookname'])){
-	$bname = $_GET['bookname'];
-	$aname = $_GET['authorname'];
-	$ed = $_GET['edition'];
+	$bname = mysql_prep($_GET['bookname']);
+	$aname = mysql_prep($_GET['authorname']);
+	$ed = mysql_prep($_GET['edition']);
 	$query4 = mysql_query("DELETE FROM bsbooks 
 	WHERE bookname = '$bname' 
 	AND edition = '$ed' 
@@ -40,10 +41,10 @@ $totallist = sizeof($booklist);
 
 <?php
 if(isset($_POST['bookname']) && isset($_POST['authorname']) && isset($_POST['price'])){
-	$bookname = $_POST['bookname'];
-	$authorname = $_POST['authorname'];
-	$edition = $_POST['edition'];
-	$price = $_POST['price'];
+	$bookname = addslashes($_POST['bookname']);
+	$authorname = addslashes($_POST['authorname']);
+	$edition = addslashes($_POST['edition']);
+	$price = addslashes($_POST['price']);
 	$query = mysql_query("INSERT INTO bsbooks (bookname,edition,authorname,price,bookstoreid,categoryname) 
 				VALUES ('$bookname','$edition','$authorname','$price','$bookstoreid','$categoryname')");
 	redirect_to("bsbooks.php?id=$bookstoreid&category=$categoryname");
@@ -91,3 +92,4 @@ for($i = 0; $i < $totallist ; $i++){
 </table>
 
 <?php include("includes/footer.php"); ?>
+<?php ob_end_flush(); ?>

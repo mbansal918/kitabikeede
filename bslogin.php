@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php
 session_start();
 ?>
@@ -64,3 +65,4 @@ if(isset($_POST['pass']) && isset($_POST['user'])){
 </div>
 <div id="sign">Kitabi Keede</div>
 <?php include("includes/footer.php"); ?>
+<?php ob_end_flush(); ?>

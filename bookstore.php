@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php
 session_start();
 ?>
@@ -60,3 +61,4 @@ $total = sizeof($categories);
         <?php } ?>
 </div>
 <?php include("includes/footer.php"); ?>
+<?php ob_end_flush(); ?>

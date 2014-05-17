@@ -1,3 +1,4 @@
+<?php ob_start();?>
 <?php require_once("includes/connection.php"); ?>
 <?php require_once("includes/functions.php"); ?>
 <?php require_once("includes/constants.php"); ?>
@@ -132,3 +133,4 @@
 <img src="img/buy.jpg" id="buyimage">
 </div>
 <?php include("includes/footer.php"); ?>
+<?php ob_end_flush(); ?>
