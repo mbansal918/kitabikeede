@@ -101,18 +101,18 @@ $colleges = sizeof($not);
                   </ul>
                   </div>
                 </td>
-                <td style="padding-left:100px;">
+                <td style="padding-left:60px;">
                 </td>
-                <td class="addnot" style="padding-left:10px;">
-
+                <td style="padding-left:10px;">
+               <div class="widget arrow-up">
                 <form action="index.php" method="POST">
-				Your college is not a part of Kitabikeede.</br>
 				Add your College / School : <input type="text" name="college"> <br>
-				Your college will be added once the admin approves it.<br>
-				<button type="submit" name="submit" class="btn btn-primary">Add College / School</button>
+				Your College will be added once the admin approves it.<br>
+				<button type="submit" name="submit" class="btn" id="adclg">Add College / School</button><br>
 				</form>
-				<br>
-				Recently added colleges -
+				<br><br><br><br><br>
+				Recently Added Colleges -
+				<center>
                   <div class="notifications">
                     <div class="notif">
                       <div class="shine"></div>
@@ -122,6 +122,8 @@ $colleges = sizeof($not);
                           </div>
                       </div>
                     </div>
+                   </center>
+                   <center>
                   <div class="notifications">
                     <div class="notif">
                       <div class="shine"></div>
@@ -130,6 +132,8 @@ $colleges = sizeof($not);
                           </div>
                       </div>
                     </div>
+				</div>
+				</center>
                 </td>
               </tr>
             </table>
