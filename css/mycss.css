@@ -307,11 +307,9 @@ h2.shake,
     width: 640px;
     height: 320px;
     text-align: center;
-    margin-top: 0px;
     margin-left: 100px;
     position: relative;
     background: #fff;
-    overflow: hidden;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
@@ -395,11 +393,11 @@ h2.shake,
 }
 
 #slider img {
-    position: fixed;
+    position: absolute;
     height: 320px;
     width:640px;
-    left: 150px;
-    top: 205px;
+    top: 0px;
+    bottom: 0px;
     opacity: 0;
     -webkit-transform: rotateZ(-10deg);
     -moz-transform: rotateZ(-10deg);
@@ -1721,6 +1719,7 @@ margin-top: -30px;
 #collegelist{
   padding-top: 0px;
 }
+
 #abouttext{
   font-size: 40px;
   color: black;
@@ -1846,4 +1845,18 @@ margin-top: -30px;
     height: 150px;
     border:2px solid #eee;
   border-style: solid; /* Don't forget vendor prefixes! */
+}
+
+/****** new css ***/
+.addnot{
+	border: solid 2px black;
+	height: 350px;
+	padding-left: 50px;
+	margin-bottom: 0px;
+	background-color: lightgrey;
+}
+.addnot:hover{
+	background-color: #32373D;
+	color: white;
+	border:solid 4px #29D9D3;
 }

@@ -7,20 +7,30 @@
 	if(isset($_GET['name']) && isset($_GET['category']))
 	{	
 		$college_name = mysql_prep($_GET['name']);
-		$category = mysql_prep($_GET['category']);	
+		$category = mysql_prep($_GET['category']);
+		if($category == 'any'){
+			$category_id = -1;
+		}
 	}
 ?>
 <div id="cpage">
+<?php if($category_id != -1) { ?>
 <a href="addbook.php?name=<?php echo urlencode($college_name);?>&category=<?php echo urlencode($category);?>">&nbsp;
 		<h3 id="addbook">Add a book to this college and category</h3></a>
+		<?php } ?>
 		<h2>Books available for this college and Category</h2>
 </div>
 <?php
 	if(isset($college_name))
 	{
 		$college_id = get_college_id($college_name);
+		if($category_id == -1){
+			$query = mysql_query("SELECT * FROM books WHERE college_name = '$college_name'");	
+		}
+		else{
 		$category_id = get_category_id($category);
 		$query = mysql_query("SELECT * FROM books WHERE college_name = '$college_name' AND category_id=$category_id");
+		}
 		$numrows = mysql_num_rows($query);
 		if($numrows!=0)
 		{
@@ -44,7 +54,7 @@
 				$seller = $row['seller'];
 				$number = $row['phone'];
 				$email = $row['email'];
-				$id = get_book_id($college_name,$category_id,$book,$author,$edition);
+				$id = get_book_id($college_name,$seller,$book,$author,$edition);
 				if($row['image']==null)
 				{
  					echo "<img src=\"img/noimage.jpg\" id=\"fucked\">";	

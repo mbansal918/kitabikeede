@@ -272,11 +272,11 @@
 		}
 	}
 
-	function get_book_id($college_name,$category_id,$bookname,$authorname,$edition)
+	function get_book_id($college_name,$seller,$bookname,$authorname,$edition)
 	{
 		//echo $college_name;
-		if(!($query = mysql_query("SELECT * FROM books WHERE (college_name = '$college_name' AND 
-									category_id = $category_id AND bookname = '$bookname' AND 
+		if(!($query = mysql_query("SELECT * FROM books WHERE (college_name = '$college_name' 
+									AND seller='$seller' AND bookname = '$bookname' AND 
 									authorname = '$authorname' AND edition = '$edition')")))
 		{
 			echo mysql_error();

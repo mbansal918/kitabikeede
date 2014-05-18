@@ -50,13 +50,13 @@
 	<div class="modal-header">
 		<h1>Choose a College / School</h1>
 	</div>
-	<div class="modal-body">
+	<div>
 		<form action="collegepage.php?name="<?php if(isset($record['college'])) 
 												echo urlencode($record['college']);?>"
 												" >
 			<select name="name" id="collegelist">
 				<?php 
-					$mydata = mysql_query("SELECT DISTINCT(college) FROM colleges ORDER BY college WHERE visible=1");
+					$mydata = mysql_query("SELECT DISTINCT(college) FROM colleges WHERE visible=1 ORDER BY college");
 					while ($record = mysql_fetch_array($mydata)) 
 					{
 						echo '<option id="ox" value="'.$record['college']. '">'.$record['college'].'</option>';
@@ -70,6 +70,7 @@
 				<h1>Choose a category</h1>
 			</div>
 			<select name="category" id="collegelist">
+			<option id="ox" value="any">All Categories</option>
 				<?php 
 					$data = mysql_query("SELECT * FROM categories");
 					while ($rcrd = mysql_fetch_array($data)) 
@@ -78,7 +79,7 @@
 					}
 				 ?>
 			</select><br />
-			<button type="submit" name="Go" value="submit" class="btn btn-primary">Buy or Sell Book</button>
+			<button type="submit" class="btn btn-primary">Buy or Sell Book</button>
 		</form>
 
 		<div id="form" class="well">

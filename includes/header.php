@@ -47,7 +47,7 @@
 		</table>
 	</div>
 	<div id="feedback">
-                  <a href="feedback.php" id="feed">feedback</a>
+                  <a href="feedback.php" id="feed" class="fbclass">feedback</a>
     </div>
     </head>
 	<body id="body">

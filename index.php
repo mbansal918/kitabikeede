@@ -3,6 +3,23 @@
 <?php require_once("includes/constants.php"); ?>
 <?php include("includes/header.php"); ?>
 
+<?php
+	if(isset($_POST['submit']))
+	{
+		$submit = mysql_prep(strip_tags($_POST['submit']));
+		$college = mysql_prep(strip_tags($_POST['college']));
+			if(!empty($college))
+			{
+				$query2 = mysql_query("SELECT * FROM colleges WHERE college='$college'");
+				$ror = mysql_fetch_array($query2);
+				if(empty($ror)){
+				$query = mysql_query("INSERT INTO colleges VALUES ('','$college',0)");
+				redirect_to("index.php");
+			}
+			}
+	}
+?>
+
 <!--
 <div id="slideshow-wrap">
         <input type="radio" id="button-1" name="controls" checked="checked"/>
@@ -85,6 +102,17 @@ $colleges = sizeof($not);
                   </div>
                 </td>
                 <td style="padding-left:100px;">
+                </td>
+                <td class="addnot" style="padding-left:10px;">
+
+                <form action="index.php" method="POST">
+				Your college is not a part of Kitabikeede.</br>
+				Add your College / School : <input type="text" name="college"> <br>
+				Your college will be added once the admin approves it.<br>
+				<button type="submit" name="submit" class="btn btn-primary">Add College / School</button>
+				</form>
+				<br>
+				Recently added colleges -
                   <div class="notifications">
                     <div class="notif">
                       <div class="shine"></div>
@@ -102,46 +130,8 @@ $colleges = sizeof($not);
                           </div>
                       </div>
                     </div>
-                  <div class="notifications">
-                    <div class="notif">
-                      <div class="shine"></div>
-                        <div class="head"><?php echo $not[$colleges - 3] ?></div>
-                          <div class="ntext">
-                          was added to the college list
-                          </div>
-                      </div>
-                    </div>
                 </td>
               </tr>
             </table>
-
-
-<?php
-	if(isset($_POST['college']))
-	{
-		$var = $_POST['college'];
-		echo "
-			<html>
-				<a href=\"collegepage.php?name=".urlencode($var)."\">Click here to go to college page</a>
-			</html>
-		";
-	}
-	if(isset($_POST['submit']))
-	{
-		$submit = mysql_prep(strip_tags($_POST['submit']));
-		$college = mysql_prep(strip_tags($_POST['college']));
-		if($submit)
-		{
-			if($college)
-			{
-				$query = mysql_query("INSERT INTO colleges VALUES ('','$college')");
-				echo "College has been added";
-				redirect_to("category.php");
-			}
-		}
-	}
-?>
-
-
 
 <?php include("includes/footer.php"); ?>
